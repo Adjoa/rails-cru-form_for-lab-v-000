@@ -1,9 +1,5 @@
 class ArtistsController < ApplicationController
 
-  def index
-    @artists = Artist.all
-  end
-
   def new
     @artist = Artist.new
   end
@@ -20,9 +16,14 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find(params[:id])
   end
 
   def update
+    @artist = Artist.find(params[:id])
+    @artist.update(student_params(:name, :bio))
+
+    redirect_to artist_path(@artist)
   end
 
   def destroy
