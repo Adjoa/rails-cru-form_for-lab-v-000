@@ -1,4 +1,4 @@
-ArtistsController < ApplicationController
+class ArtistsController < ApplicationController
 
   def index
   end
